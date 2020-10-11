@@ -1,0 +1,44 @@
+// paypalishiring 
+// p   a   h   n  row 1
+// a p l s i i g   row2
+// y   i   r       row 3
+// output string pahnaplsiigyir
+// input params is string and number of rows
+// output is string
+function zigzag(str, r){
+  let pa = [];
+  for(let i=0;i<r;i++){
+    pa[i]='';
+  } 
+  let p1=0;
+  let p2=0;
+  let p3=(r-1);
+  let f = true;
+  while(p1<str.length){
+    //pa[p2]=str[p1];
+    if(f){
+      pa[p2]=pa[p2]+str[p1];
+      p2++;
+      
+    }
+    if(!f){
+      pa[p3]=pa[p3]+str[p1];
+      p3--;
+      
+    }
+    if(p2===(r-1)){
+        p2=0;
+        f = false;
+      }
+    if(p3===0){
+        p3=r-1;
+        f=true;
+      }
+    p1++;
+    
+  }
+  
+  return pa.join('');
+}
+console.log(zigzag('paypalishiring',3))
+  
